@@ -9,17 +9,26 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    username = Column(String, unique=True, index=True)
+    name = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 
-class Progess(Base):
+class Progress(Base):
     __tablename__ = "progress"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     student_id = Column(String, index=True)
     lesson_id = Column(String)
     progress = Column(Integer)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     score = Column(Integer, default=0)
+
+class Lesson(Base):
+    __tablename__ = "lessons"
+
+    id = Column(String, primary_key=True)
+    title = Column(String, nullable=False)
+    topic = Column(String, nullable=False)     
+    order = Column(Integer, default=0)  
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
