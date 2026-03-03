@@ -22,6 +22,6 @@ class UserLogin(BaseModel):
     password: str = Field(..., min_length=6)
 
 
-class logout(BaseModel):
+class LoginOut(BaseModel):
     token: str
-    user: str
+    user: UserOut

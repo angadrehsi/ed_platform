@@ -4,7 +4,7 @@ import uuid
 
 from database.session import get_db
 from models.models import User
-from schemas.user import UserCreate, UserLogin, UserOut, logout
+from schemas.user import UserCreate, UserLogin, UserOut, LoginOut
 
 router = APIRouter(prefix="/users", tags=["users"])
 
@@ -29,7 +29,7 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
     return db_user
 
 
-@router.post("/login", response_model=logout)
+@router.post("/login", response_model=LoginOut)
 def login(credentials: UserLogin, db: Session = Depends(get_db)):
     user = (
         db.query(User)
@@ -45,4 +45,4 @@ def login(credentials: UserLogin, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(user)
 
-    return {"token": token, "user": user.name}
+    return {"token": token, "user": user}

@@ -10,7 +10,7 @@ router = APIRouter()
 
 @router.get("/lessons/", response_model=list[LessonOut])
 def get_all_lessons(db: Session = Depends(get_db)):
-    return db.query(Lesson).order_by(Lesson).all()
+    return db.query(Lesson).order_by(Lesson.id).all()
 
 
 @router.get("/lessons/{lesson_id}", response_model=LessonOut)
