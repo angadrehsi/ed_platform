@@ -7,6 +7,7 @@ from database.base import Base
 from routers.user_route import router as users_router
 from routers.progress_route import router as progress_router
 from routers.lesson_route import router as lessons_router
+from routers.llm_route import router as llm_router
 
 Base.metadata.create_all(bind=engine)
 
@@ -23,6 +24,8 @@ app.add_middleware(
 app.include_router(users_router)
 app.include_router(progress_router)
 app.include_router(lessons_router)
+app.include_router(llm_router)
+
 
 @app.get("/")
 def root():

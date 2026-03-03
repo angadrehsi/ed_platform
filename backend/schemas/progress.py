@@ -17,3 +17,8 @@ class ProgressOut(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class LessonComplete(BaseModel):
+    student_id: UUID
+    lesson_id: str

@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class LessonOut(BaseModel):
     id: str
     title: str

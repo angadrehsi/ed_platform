@@ -12,6 +12,8 @@ class User(Base):
     name = Column(String, unique=True, index=True)
     email = Column(String, unique=True, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+    password = Column(String, nullable=False)
+    session_token = Column(String, nullable=True)
 
 
 class Progress(Base):
@@ -24,11 +26,11 @@ class Progress(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     score = Column(Integer, default=0)
 
+
 class Lesson(Base):
     __tablename__ = "lessons"
 
     id = Column(String, primary_key=True)
     title = Column(String, nullable=False)
-    topic = Column(String, nullable=False)     
-    order = Column(Integer, default=0)  
+    topic = Column(String, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
