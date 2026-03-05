@@ -11,6 +11,7 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     lesson_id: str
     topic: str
+    content: str
     history: list[ChatMessage]
     message: str
 
@@ -18,6 +19,7 @@ class ChatRequest(BaseModel):
 class QuizRequest(BaseModel):
     lesson_id: str
     topic: str
+    content: str
 
 
 class QuizOption(BaseModel):

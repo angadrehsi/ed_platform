@@ -24,9 +24,7 @@ async def chat(request: ChatRequest):
 
     user_message = request.message
     if not request.history:
-        user_message = (
-            f"{build_system_prompt(request.topic)}\n\nStudent: {request.message}"
-        )
+        user_message = f"{build_system_prompt(request.topic, request.content)}\n\nStudent: {request.message}"
 
     async def stream_response():
         try:

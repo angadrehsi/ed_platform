@@ -8,6 +8,8 @@ from routers.user_route import router as users_router
 from routers.progress_route import router as progress_router
 from routers.lesson_route import router as lessons_router
 from routers.llm_route import router as llm_router
+import models.models
+import os
 
 Base.metadata.create_all(bind=engine)
 
@@ -15,7 +17,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[os.getenv("fe")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -14,11 +14,18 @@ class ProgressOut(BaseModel):
     student_id: UUID
     lesson_id: str
     score: int
+    progress_type: str
 
     class Config:
         orm_mode = True
 
 
 class LessonComplete(BaseModel):
+    student_id: UUID
+    lesson_id: str
+    score: int
+
+
+class LessonRead(BaseModel):
     student_id: UUID
     lesson_id: str

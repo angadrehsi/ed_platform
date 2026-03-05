@@ -23,6 +23,7 @@ class Progress(Base):
     student_id = Column(String, index=True)
     lesson_id = Column(String)
     progress = Column(Integer)
+    progress_type = Column(String)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     score = Column(Integer, default=0)
 
@@ -33,4 +34,5 @@ class Lesson(Base):
     id = Column(String, primary_key=True)
     title = Column(String, nullable=False)
     topic = Column(String, nullable=False)
+    content = Column(String, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
