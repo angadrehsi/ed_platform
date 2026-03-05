@@ -29,14 +29,6 @@ export default function Landing() {
       <StarsBg />
       <Navbar homeRoute="/" links={[{ label: "About", to: "/about" }, { label: "Terms", to: "/terms" }]} />
 
-      <nav style={{ position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1.1rem 3rem", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <span style={{ fontWeight: 700, fontSize: "1rem", letterSpacing: "-0.01em" }}>Cosmo</span>
-        <div style={{ display: "flex", gap: "0.6rem" }}>
-          <button className="btn-ghost" onClick={() => navigate("/auth")}>Log in</button>
-          <button className="btn-primary" onClick={() => navigate("/auth")}>Get started</button>
-        </div>
-      </nav>
-
       <main style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "5rem 2rem 3rem", textAlign: "center" }}>
         <div style={{ display: "inline-block", background: "rgba(99,102,241,0.12)", border: "1px solid rgba(99,102,241,0.3)", borderRadius: "999px", padding: "0.25rem 0.9rem", fontSize: "0.72rem", color: "#a5b4fc", marginBottom: "1.5rem", letterSpacing: "0.06em", textTransform: "uppercase" }}>
           AI-Powered Space Education

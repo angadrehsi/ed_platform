@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcon";
 import StarsBg from "../components/bg";
+import Navbar from "../components/NavBar";
 
 export default function Auth() {
   const [tab, setTab] = useState<"login" | "register">("login");
@@ -46,10 +47,7 @@ export default function Auth() {
       `}</style>
 
       <StarsBg />
-
-      <nav style={{ position: "relative", zIndex: 10, display: "flex", alignItems: "center", padding: "1.1rem 3rem", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <span onClick={() => navigate("/")} style={{ fontWeight: 700, fontSize: "1rem", cursor: "pointer", letterSpacing: "-0.01em" }}>Cosmo</span>
-      </nav>
+      <Navbar homeRoute="/" links={[{ label: "About", to: "/about" }, { label: "Terms", to: "/terms" }]} />
 
       <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
         <div style={{ width: "100%", maxWidth: 380 }}>
