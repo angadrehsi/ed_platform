@@ -29,6 +29,11 @@ app.include_router(lessons_router)
 app.include_router(llm_router)
 
 
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+
 @app.get("/")
 def root():
     return {"message": "Backend Running"}

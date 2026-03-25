@@ -12,6 +12,10 @@ export default function Landing() {
     if (user) navigate("/home");
   }, [user]);
 
+  useEffect(() => {
+  fetch(`${import.meta.env.VITE_API_URL}/ping`).catch(() => {});
+  }, []);
+
   return (
     <div style={{ minHeight: "100vh", background: "#060610", fontFamily: "system-ui, sans-serif", color: "white", display: "flex", flexDirection: "column", position: "relative" }}>
       <style>{`
